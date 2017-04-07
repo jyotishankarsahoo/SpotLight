@@ -27,10 +27,6 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         self.setUpView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-       // self.setUpSearchableItem()
-    }
     
     //MARK: Textfield Delegate
     func textFieldShouldReturn(_ textField: UITextField) -> Bool{
@@ -130,7 +126,7 @@ class ViewController: UIViewController,UITableViewDelegate,UITableViewDataSource
         let detailedViewcontroller = segue.destination as! DetailedViewController
         let selectedMovieIndex = self.resultsTableView.indexPathForSelectedRow?.row
         
-        self.selectedMovieTitle = self.moviesList != nil ? self.moviesList[selectedMovieIndex!].title : self.selectedMovieTitle
+        self.selectedMovieTitle = selectedMovieIndex != nil ? self.moviesList[selectedMovieIndex!].title : self.selectedMovieTitle
         detailedViewcontroller.movieTitle = self.selectedMovieTitle
 
     }
